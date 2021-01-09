@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,500&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	height: 100vh;
+	font-family: var(--mainfont);
+	background: var(--app_back);
+	color: var(--text_color);
+}
+
+a{
+	text-decoration: none;
+}
+
+:root{
+	--mainfont : 'Montserrat', sans-serif;
+	--title_weight : 700;
+	--app_back : #F0F0F0;
+	--nav_back : ihnerit;
+	--text_color : #000000;
+	--news_color : #FFFFFF
+}

@@ -1,0 +1,25 @@
+<div class="news">
+    <div class="container">
+        <div class="news_title">
+            <div class="news_title_in">Новости</div>
+        </div>
+        <div class="news_inner">
+            <div class="post" *ngFor = "let post of news">
+                <div class="post_in">
+                    <img src="{{post.image}}" class="post_img">
+                    <div class="post_">
+                        <div class="post_timestamp">{{post.timestamp}}</div>
+                        <div class="post_title">{{post.title}}</div>
+                        <div class="post_content">{{post.content}}</div>
+                        <div class="post_media">
+                            <div class="post_views">{{post.views}}</div>
+                            <img src="/assets/images/visibility.svg" class = "news_flaticon">
+                            <div class="post_comments">{{post.comments}}</div>
+                            <img src="/assets/images/chat.svg" class = "news_flaticon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

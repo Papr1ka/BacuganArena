@@ -1,0 +1,9 @@
+<header>
+    <div class="logo"><img src="/assets/images/logo.png" class="image_logo"></div>
+    <nav>
+        <div class = "inner_nav" id = "mylinklist">
+            <a *ngFor = "let link of links" routerLink="{{link.link}}">{{link.name | uppercase}}</a>
+            <a class = "icon" id = "menu" (click) = "call_menu()">&#9776;</a>
+        </div>
+    </nav>
+</header>
