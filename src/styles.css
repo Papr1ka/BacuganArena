@@ -3,6 +3,7 @@
 *{
 	padding: 0;
 	margin: 0;
+	line-height: 25px
 }
 
 body{
@@ -19,8 +20,11 @@ a{
 :root{
 	--mainfont : 'Montserrat', sans-serif;
 	--title_weight : 700;
-	--app_back : #F0F0F0;
+	--app_back : #161B1D;
 	--nav_back : ihnerit;
 	--text_color : #000000;
-	--news_color : #FFFFFF
+	--news_color : #FFFFFF;
+	--nav-text-color : #F0F0F0;
+	--title_color : ;
+	--text_second_color : #666;
 }

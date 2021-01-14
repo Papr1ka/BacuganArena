@@ -1,7 +1,7 @@
 <div class="news">
     <div class="container">
         <div class="news_title">
-            <div class="news_title_in">Новости</div>
+            <div class="news_title_in">Новости Backugan Arena</div>
         </div>
         <div class="news_inner">
             <div class="post" *ngFor = "let post of news">
@@ -9,17 +9,25 @@
                     <img src="{{post.image}}" class="post_img">
                     <div class="post_">
                         <div class="post_timestamp">{{post.timestamp}}</div>
-                        <div class="post_title">{{post.title}}</div>
+                        <div class="post_title">
+                            <a routerLink="{{post.ref}}">{{post.title}}</a>
+                        </div>
                         <div class="post_content">{{post.content}}</div>
                         <div class="post_media">
                             <div class="post_views">{{post.views}}</div>
                             <img src="/assets/images/visibility.svg" class = "news_flaticon">
-                            <div class="post_comments">{{post.comments}}</div>
-                            <img src="/assets/images/chat.svg" class = "news_flaticon">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="pagination">
+            <img src="/assets/images/left-arrow.svg" class="icon" (click) = "changePagePrevious()">
+            <a *ngFor = "let i of getPages()" class="p_link" (click) = "changePage(i)">
+                <span class="active" *ngIf = "i == page; else elseblock">{{i}}</span>
+                <ng-template #elseblock><span>{{i}}</span></ng-template>
+            </a>
+            <img src="/assets/images/right-arrow.svg" class="icon" (click) = "changePageNext()">
         </div>
     </div>
 </div>

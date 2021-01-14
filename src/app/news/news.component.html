@@ -1,0 +1,15 @@
+<app-co-nav></app-co-nav>
+<div class="page">
+    <div class="page_ctx">
+        <div class="page_title">{{Data.title}}</div>
+        <div class="page_media">
+            <div class="page_timestamp">{{Data.timestamp}}</div>
+            <div class="page_views">{{Data.views}}</div>
+            <img src="/assets/images/visibility.svg" class = "news_flaticon">
+        </div>
+        <div class="page_content">{{Data.content}}</div>
+        <div class="page_images">
+            <img *ngFor = "let image of Data.images" src="{{image}}">
+        </div>
+    </div>
+</div>

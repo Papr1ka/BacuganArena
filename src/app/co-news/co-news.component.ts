@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { from } from 'rxjs';
 import { Router } from '@angular/router'
+import { PaginationService } from '../pagination.service';
+import { News } from '../modules/news';
 
 @Component({
   selector: 'app-co-news',
@@ -10,62 +12,67 @@ import { Router } from '@angular/router'
 })
 export class CoNewsComponent implements OnInit {
 
-  news = [
-    {
-      "id" : "2",
-      "title" : "После «Мстители Финал» постаревший Росомаха вернулся к Мстителям в новом фильме",
-      "content" : "После Мстители Финал создатели нового фильма Marvel решили вернуть на экраны постаревшего мутанта Росомаху в исполнении актера... После Мстители Финал создатели нового фильма Marvel решили вернуть на экраны постаревшего мутанта Росомаху в исполнении актера... После Мстители Финал создатели нового фильма Marvel решили вернуть на экраны постаревшего мутанта Росомаху в исполнении актера...",
-      "timestamp" : "8 января 2021 в 20:29",
-      "views" : "4885",
-      "comments" : "0",
-      "image" : "http://gamebomb.ru/files/galleries/001/d/dc/369015_w180.jpg"
-    },
-    {
-      "id" : "1",
-      "title" : "После «Мстители Финал» постаревший Росомаха вернулся к Мстителям в новом фильме",
-      "content" : "После Мстители Финал создатели нового фильма Marvel решили вернуть на экраны постаревшего мутанта Росомаху в исполнении актера...",
-      "timestamp" : "8 января 2021 в 20:29",
-      "views" : "4885",
-      "comments" : "0",
-      "image" : "http://gamebomb.ru/files/galleries/001/d/dc/369015_w180.jpg"
-    }
-  ]
-  
-  id : number;
 
-  constructor(private route: ActivatedRoute, private router : Router) {
-    this.id = route.snapshot.params["id"];
-    if (this.id != undefined){
-      if (isNaN(this.id / 1) == false){
-        console.log("число")
-      }
-      else{
-        this.router.navigate(["/not_found"])
-      }
-      console.log(this.id)
+  news : Array<News>;
+  items_per_page = 10; 
+  max_page : number;
+  page = 1;
+  pages : any[] = [];
+  pagesToShow = 7;
+
+  constructor(private route: ActivatedRoute, private pservice : PaginationService) {
+    this.news = pservice.getUsers(1, this.items_per_page);
+    this.max_page = pservice.get_max(this.items_per_page);
+    for (let i = 1; i < this.max_page + 1; i++){
+      this.pages.push(i)
     }
-    for (var i = 0; i < 20; i++){
-      this.news.push(
-        {
-          "id" : "2",
-          "title" : "После «Мстители Финал» постаревший Росомаха вернулся к Мстителям в новом фильме",
-          "content" : "После Мстители Финал создатели нового фильма Marvel решили вернуть на экраны постаревшего мутанта Росомаху в исполнении актера... После Мстители Финал создатели нового фильма Marvel решили вернуть на экраны постаревшего мутанта Росомаху в исполнении актера... После Мстители Финал создатели нового фильма Marvel решили вернуть на экраны постаревшего мутанта Росомаху в исполнении актера...",
-          "timestamp" : "8 января 2021 в 20:29",
-          "views" : "4885",
-          "comments" : "0",
-          "image" : "http://gamebomb.ru/files/galleries/001/d/dc/369015_w180.jpg"
-        }
-      )
-    }
-    console.log(this.news)
   }
 
   ngOnInit(): void {
   }
 
-  get_news(page : number){
+
+  changePage(page : number){
+    this.news = this.pservice.getUsers(page, this.items_per_page);
+    this.page = page;
   }
 
+  changePageNext(){
+    if (this.page < this.max_page){
+      this.news = this.pservice.getUsers(this.page + 1, this.items_per_page);
+    this.page = this.page + 1
+    }
+  }
+
+  changePagePrevious(){
+    if (this.page > 1){
+      this.news = this.pservice.getUsers(this.page - 1, this.items_per_page);
+    this.page = this.page - 1
+    }
+  }
+
+  getPages(): number[] {
+    const c = this.max_page;
+    const p = this.page || 1;
+    const pagesToShow = this.pagesToShow || 9;
+    const pages: number[] = [];
+    pages.push(p);
+    const times = pagesToShow - 1;
+    for (let i = 0; i < times; i++) {
+      if (pages.length < pagesToShow) {
+        if (Math.min.apply(null, pages) > 1) {
+          pages.push(Math.min.apply(null, pages) - 1);
+        }
+      }
+      if (pages.length < pagesToShow) {
+        if (Math.max.apply(null, pages) < c) {
+          pages.push(Math.max.apply(null, pages) + 1);
+        }
+      }
+    }
+    pages.sort((a, b) => a - b);
+    return pages;
+  }
 
 
 }

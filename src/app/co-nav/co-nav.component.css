@@ -39,7 +39,7 @@ nav{
 }
 
 .inner_nav a{
-    color : #000;
+    color : var(--nav-text-color);
     text-align: center;
     padding: 14px 16px;
     font-size: 15px;
@@ -76,7 +76,7 @@ nav{
         float: right;
         margin-top: -17px;
         display: block;
-        color: #000;
+        color: #fff;
     }
     nav{
         width: 100%;
