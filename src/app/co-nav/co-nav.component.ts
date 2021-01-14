@@ -9,7 +9,7 @@ export class CoNavComponent implements OnInit {
   links = [
     {
       "name" : "Главная",
-      "link" : "/home/1"
+      "link" : "/home"
     },
     {
       "name" : "Последние бои",

@@ -5,7 +5,7 @@ import { NewsComponent } from './news/news.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-  {path : "home/:id", component : HomeComponent},
+  {path : "home", component : HomeComponent},
   {path : "news/:id", component : NewsComponent},
   {path : "**", component : NotfoundComponent}
 ];

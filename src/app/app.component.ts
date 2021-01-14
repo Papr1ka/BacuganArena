@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PaginationService } from './pagination.service';
+import { PaginationService } from './services/pagination.service';
 
 @Component({
   selector: 'app-root',

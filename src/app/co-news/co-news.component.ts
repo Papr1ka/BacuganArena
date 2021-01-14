@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { from } from 'rxjs';
 import { Router } from '@angular/router'
-import { PaginationService } from '../pagination.service';
+import { PaginationService } from '../services/pagination.service';
 import { News } from '../modules/news';
 
 @Component({

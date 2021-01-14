@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pagenews } from '../modules/pagenews';
-import { PaginationService } from '../pagination.service';
+import { PaginationService } from '../services/pagination.service';
 
 @Component({
   selector: 'app-news',

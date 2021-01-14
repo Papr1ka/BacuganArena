@@ -1,0 +1,9 @@
+*{
+    color: var(--nav-text-color);
+}
+
+.container{
+    background: rgb(60, 60, 60);
+    min-height: 100vh;
+    width: 100%;
+}
