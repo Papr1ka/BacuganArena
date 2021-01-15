@@ -10,6 +10,7 @@ import { CoNewsComponent } from './co-news/co-news.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CoNotfoundComponent } from './co-notfound/co-notfound.component';
 import { NewsComponent } from './news/news.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewsComponent } from './news/news.component';
   imports: [
     BrowserModule,
     AdminModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,7 +8,7 @@ import { AdminRoutingModule, adminRouterComponents} from './admin-routing.module
   declarations: [adminRouterComponents],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
   ]
 })
 export class AdminModule { }

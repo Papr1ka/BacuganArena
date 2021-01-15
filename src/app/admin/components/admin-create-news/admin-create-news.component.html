@@ -1,4 +1,8 @@
 <div class="container">
-    <div class="textarea"></div>
-    <div class="pretty"></div>
+    <div class="inner">
+        <div class="textarea">
+            <input type="text" name = "data" [(ngModel)]="data">
+        </div>
+        <div class="pretty">{{data}}</div>
+    </div>
 </div>

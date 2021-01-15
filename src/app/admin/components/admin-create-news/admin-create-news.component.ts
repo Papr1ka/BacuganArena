@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-admin-create-news',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-create-news.component.css']
 })
 export class AdminCreateNewsComponent implements OnInit {
+  data : string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
