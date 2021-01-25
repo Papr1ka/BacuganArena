@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { from } from 'rxjs';
 import { Router } from '@angular/router'
 import { PaginationService } from '../services/pagination.service';
-import { News } from '../modules/news';
+import { DataNews } from '../modules/data-news';
 
 @Component({
   selector: 'app-co-news',
@@ -13,7 +13,7 @@ import { News } from '../modules/news';
 export class CoNewsComponent implements OnInit {
 
 
-  news : Array<News>;
+  news : Array<DataNews>;
   items_per_page = 10; 
   max_page : number;
   page = 1;

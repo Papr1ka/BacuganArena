@@ -1,8 +1,8 @@
-export class News {
+export class DataNews {
     "id" : number;
     "title" : string;
     "content" : string;
-    "timestamp" : string;
+    "timestamp" : Date;
     "views" : number;
     "image" : string;
     "ref" : string;

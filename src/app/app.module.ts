@@ -11,6 +11,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CoNotfoundComponent } from './co-notfound/co-notfound.component';
 import { NewsComponent } from './news/news.component';
 import { FormsModule } from '@angular/forms';
+import { SafehtmlPipe } from './pipes/safehtml.pipe';
+import { PaginationService } from './services/pagination.service';
+import { DatepipePipe } from './pipes/datepipe.pipe';
 
 @NgModule({
   declarations: [
@@ -20,15 +23,17 @@ import { FormsModule } from '@angular/forms';
     CoNewsComponent,
     NotfoundComponent,
     CoNotfoundComponent,
-    NewsComponent
+    NewsComponent,
+    SafehtmlPipe,
+    DatepipePipe
   ],
   imports: [
     BrowserModule,
     AdminModule,
     FormsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [PaginationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

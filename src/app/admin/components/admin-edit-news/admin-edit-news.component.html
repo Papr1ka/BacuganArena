@@ -1,1 +1,50 @@
-<p>admin-edit-news works!</p>
+<div class="full">
+    <form action="" method="get" class="search">
+        <input name="s" placeholder="Искать здесь..." type="search" [(ngModel)] = "param">
+        <button type="submit" (click) = "search(param)"></button>
+    </form>
+</div>
+
+<div class="pre">
+    <div class="titl">
+      <strong>Заголовок</strong>
+      <div>
+        <input class="linear" type="text" [(ngModel)] = "post.title">
+      </div>
+    </div>
+    <div class="image">
+      <strong>ссылка на картинку для превью</strong>
+      <div>
+        <input class="linear" type="text" [(ngModel)] = "post.image">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="pretty">
+      <div class="page">
+        <div class="page_ctx">
+          <div class="page_title">{{post.title}}</div>
+            <div class="page_media">
+              <div class="page_timestamp">{{post.timestamp | date : "d MMM YYY"}}</div>
+              <div class="page_views">{{post.views}}</div>
+              <img src="/assets/images/visibility.svg" class = "news_flaticon">
+            </div>
+          <div class="page_content" [innerHTML] = "getData()"></div>
+        </div>
+      </div>
+    </div>
+    <div class="editor">
+      <ngx-codemirror #codemirror
+      [options]="codeMirrorOptions"
+      [(ngModel)]="post.content"
+      (ngModelChange)="setEditorContent($event)">
+    </ngx-codemirror>
+    </div>
+  </div>
+  <div class="btn">
+    <div class="button" (click) = "editData(post)">
+      Edit the news
+    </div>
+  </div>
+  
+  

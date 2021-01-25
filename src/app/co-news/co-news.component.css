@@ -76,6 +76,9 @@
 
 .post_img{
     margin-bottom: auto;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 7px;
 }
 
 .post_title a{

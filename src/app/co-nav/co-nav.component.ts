@@ -34,7 +34,11 @@ export class CoNavComponent implements OnInit {
     {
       "name" : "Контакты",
       "link" : "/contacts"
-    }
+    },
+    {
+      "name" : "Админка",
+      "link" : "/admin"
+    },
   ]
 
   nav_title = "Арена"

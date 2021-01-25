@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Pagenews } from '../modules/pagenews';
+import { DataNews } from '../modules/data-news';
 import { PaginationService } from '../services/pagination.service';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  styleUrls: ['./news.component.css'],
+  encapsulation : ViewEncapsulation.None
 })
 export class NewsComponent implements OnInit {
   
-  Data : Pagenews;
+  Data : DataNews;
 
   constructor(private route : ActivatedRoute, private pservice : PaginationService, private router : Router) {
     let id = route.snapshot.params["id"];
-    this.loadData(id);
+    this.Data = this.loadData(id);
     this.add_view(id);
   }
 
@@ -24,11 +25,12 @@ export class NewsComponent implements OnInit {
   loadData(id : number){
     let Data = this.pservice.getPage(id);
     if (Data != null){
-      this.Data = Data;
       console.log(this.Data)
+      return Data;
     }
     else{
       this.router.navigate(["/not-found"])
+      return <DataNews>{};
     }
   }
 

@@ -4,7 +4,7 @@
             <a>ADMIN</a>
         </div>
         <div class = "inner_nav">
-            <div routerLinkActive="active" [routerLinkOptions] = "{ exact : true }">
+            <div routerLinkActive="active" [routerLinkActiveOptions] = "{ exact : true }">
                 <a routerLink="./">Dashboard</a>
             </div>
             <div routerLinkActive="active">
@@ -12,6 +12,9 @@
             </div>
             <div routerLinkActive="active">
                 <a routerLink="./edit">Edit news</a>
+            </div>
+            <div>
+                <a routerLink="/home">Home</a>
             </div>
         </div>
     </nav>

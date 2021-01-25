@@ -7,7 +7,7 @@ import { delay, tap } from 'rxjs/operators'
 })
 export class AuthService {
   isLiggedIn = true; //false
-  redirectUrl : string;
+  redirectUrl : string = "";
 
   login() : Observable<boolean>{
     return of(true).pipe(
